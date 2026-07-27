@@ -34,11 +34,11 @@ It is important to spend some time getting to know your data before moving on to
 
 | Code (df = your data frame)     | What it does |
 | --------- | ------- |
-| dim(df)     | returns the number of rows and columns your data has        |
-| glimpse(df)          | returns the number of rows and columns, all of the column names and their type (date/time/chr/dbl/lgl). Sometimes when you have errors it is due to the variable type so this can be helpful.  |
-| head(df, 10)          | returns the first 6 rows of data. Here I overrode that and had it return the first 10. tail(df) would show the last 6 rows.       |
-| df %>% select("time", "species", "od600") %>% head()         | If you have a lot of variables, you can select which columns you want to display        |
-| names(df)      | returns names of columns         |
-| summary(df)          | returns summary statistics like mean/median for numeric variables        |
+| ```dim(df)```     | returns the number of rows and columns your data has        |
+| ```glimpse(df)```    | returns the number of rows and columns, all of the column names and their type (date/time/chr/dbl/lgl). Sometimes when you have errors it is due to the variable type so this can be helpful.  |
+| ```head(df, 10)```          | returns the first 6 rows of data. Here I overrode that and had it return the first 10. tail(df) would show the last 6 rows.       |
+| ```df %>% select("time", "species", "od600") %>% head()```         | If you have a lot of variables, you can select which columns you want to display        |
+| ```names(df)```      | returns names of columns         |
+| ```summary(df)```          | returns summary statistics like mean/median for numeric variables        |
 |           |         |
 
