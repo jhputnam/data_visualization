@@ -14,7 +14,7 @@ When we look at figures, we don't go "in order"; we see what first stands out. W
 
 When we see a pattern (humans are very good at detecting them!), we naturally try to come up with an explanation. That explanation then might make it harder for us to see evidence to the contrary. Stay skeptical and think about alternative explanations. 
 
-### Understanding our audience
+### Taking advantage of how our brains work
 
 Our audience will have limited time with our visualization. We need to help them make sense of it as quickly as possible with the least mental effort possible. Make it easy for them! Your audience will never spend as much time as you will to understand the point(s) you're trying to make.
 * Reduce cognitive load by reducing visual clutter. Always remove the gray background that automatically comes with R plots. Use color sparingly and consistently. A change in color should convey information about the data, and not just be used to make the figure pretty. Make the important aspect/ pattern of the data stand out.
