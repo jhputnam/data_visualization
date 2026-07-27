@@ -4,7 +4,7 @@ This repository is meant to be a reference about best data visualization practic
 
 # R Markdown
 
-When working in R, I like to use R markdown files (.Rmd). This allows separation of your code into many code chunks, which is a nice way to organize your code. This makes it easier to return to your work and understand it. Outside of code chunks, you can add headings and paragraphs related to the code or its output. Separating your code into chunks also helps when you want to run a subset of your code. Rmd files also can be knit to html, which is a nice way to share your work. You can use headings, write paragraphs explaining your code or topic, and decide what code and figures you want to include in the html file. [Here](https://www.markdownguide.org/basic-syntax/) is a great resource on Rmd syntax. Of particular interest are headings. Be sure to read the best practices sections. 
+When working in R, I like to use R markdown files (.Rmd). This allows separation of your code into many code chunks, which is a nice way to organize your code. This makes it easier to return to your work and understand it. Outside of code chunks, you can add headings and paragraphs related to the code or its output. Separating your code into chunks also helps when you want to run a subset of your code. Rmd files also can be knit to html, which is a nice way to share your work. You can use headings, write paragraphs explaining your code or topic, and decide what code and figures you want to include in the html file. [Here](https://www.markdownguide.org/basic-syntax/) is a great resource on Rmd syntax. Of particular interest are headings (# outside of code chunks indicate headings, whereas # within code chunks indicates a comment). Be sure to read the best practices sections. 
 
 For knitting your .Rmd file into html, you can decide what you want to show up in the output html file. Put these flags in the chunk label. For example: {r, include=FALSE, echo=FALSE, warning=FALSE, fig.align='center'}
 * include=FALSE runs the code but doesn’t show the code or output when you knit
@@ -13,12 +13,3 @@ For knitting your .Rmd file into html, you can decide what you want to show up i
 * message=FALSE prevents messages generated from the code chunk from appearing in the html output
 * fig.align='center' makes any figure output from that code chunk be centered in the html output
 
-
-
-
-
-named colors in R: https://r-charts.com/colors/
-adding a horizontal line ggplot: https://www.statology.org/ggplot-horizontal-line/
-remove gridlines ggplot: https://www.statology.org/ggplot-remove-gridlines/
-remove axis labels ggplot: https://www.statology.org/remove-axis-labels-ggplot2/
-box plot ggplot: https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/
