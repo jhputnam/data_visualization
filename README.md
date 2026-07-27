@@ -16,4 +16,5 @@ For knitting your .Rmd file into html, you can decide what you want to show up i
 * warning=FALSE prevents warnings generated from the code chunk from appearing in the html output (I usually test knit and if there are any warnings, I add this to the code chunk title the warning came from) 
 * message=FALSE prevents messages generated from the code chunk from appearing in the html output
 * fig.align='center' makes any figure output from that code chunk be centered in the html output
+* fig.show='hide' hides plots from that code chunk in the html output
 
