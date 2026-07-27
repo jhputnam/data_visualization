@@ -17,3 +17,7 @@ annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=
     3. make notes on likes, dislikes, and wish-I-saws
     4. find 3 things you’d change and say why
     5. sketch/prototype your vision, and critique yourself
+ 
+
+AI can help with coding in R if you run into errors. However, I have found that resources like stackoverflow, ggplot website, and my class notes can be much more helpful at helping me understand what my code is doing and why it didn't work. There are often many different ways to code something to get the same result, and I prefer to use the tools I was taught instead of an alternative generative AI way that is confusing to me. Either way, be sure that you can explain what each line of your code does. Importantly, generative AI is pretty bad at critiquing or making visualizations, so the principles herein are important to learn and follow yourself. 
+
