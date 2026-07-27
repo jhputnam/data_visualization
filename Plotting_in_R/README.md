@@ -80,6 +80,11 @@ Use color sparingly and consistently. A change in color should convey informatio
     4. find 3 things you’d change and say why
     5. sketch/prototype your vision, and critique yourself
  
+named colors in R: https://r-charts.com/colors/
+adding a horizontal line ggplot: https://www.statology.org/ggplot-horizontal-line/
+remove gridlines ggplot: https://www.statology.org/ggplot-remove-gridlines/
+remove axis labels ggplot: https://www.statology.org/remove-axis-labels-ggplot2/
+box plot ggplot: https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/
+ 
 
-AI can help with coding in R if you run into errors. However, I have found that resources like stackoverflow, ggplot website, and my class notes can be much more helpful at helping me understand what my code is doing and why it didn't work. There are often many different ways to code something to get the same result, and I prefer to use the tools I was taught instead of an alternative generative AI way that is confusing to me. Either way, be sure that you can explain what each line of your code does. Importantly, generative AI is pretty bad at critiquing or making visualizations, so the principles herein are important to learn and follow yourself. 
 
