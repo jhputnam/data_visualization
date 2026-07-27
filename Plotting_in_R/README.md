@@ -6,11 +6,58 @@ I almost always use ggplot to make plots in R, though there are other options if
 
 If you're not sure which type of plot would best display your data, see the flowchart on slide 4 of Data_visualization_resources to help you decide. See also [this site](https://datavizproject.com/). 
 
+Here are the main plot types I use, but see the whole list [here](https://ggplot2.tidyverse.org/reference/). 
+
+| Code    | Plot Type |
+| --------- | ------- |
+| ```geom_point()```    | scatter plot   |
+| ```geom_col()```     | bar chart   |
+| ```geom_line()```    | line graph   |
+| ```geom_boxplot()```    | box plot   |
+| ```geom_violin()```   | violin plot   |
 
 
 
-annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)
-    - adds text at specific coordinates in the graph!
+# Plotting Cheat Sheet
+
+First you'll need to use ggplot, then choose your geom (chart type), then choose your overall theme. This takes away the ugly gray background in the standard option. I always use either theme_bw() or theme_minimal(). Then, you can add all sorts of customization using + at the previous line.
+For code that goes within theme() or labs(), you can combine them into one theme() or labs(), separating each piece of code with a comma. 
+
+```
+df %>% # this is a pipe symbol. There is one other pipe symbol that does the same thing. Alternatively, you can put the df name before the aes in the ggplot argument ggplot(df, aes(...))
+  ggplot(aes(x = time, y = od600, color = condition)) +
+  geom_point() + # scatterplot
+  theme_minimal() +
+  # everything else goes here below your ggplot, geom, and the overall theme you're choosing lines of code
+  labs(
+    x = "Time (h)",
+    y = "Optical Density at 600nm"
+  ) +
+  theme(
+    axis.title.x = element_text(size=11),
+    axis.text.x = element_text(size=9)
+  )
+```
+
+| Code    | What it does |
+| --------- | ------- |
+| ```annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)```     | adds text at specific coordinates in the graph   |
+| ```labs(title = "Your Title Here")```      | add title. If it's long, you can use ```label_wrap("Your Title Here")```        |
+| ```labs(subtitle = "Your subtitle here")```    | add subtitle        |
+| ```labs(x = "Time (h)")```     | add x axis label. If it's long, you can use ```label_wrap("Long x axis label")```       |
+| ```labs(y = "Optical Density at 600nm")```    | add y axis label. If it's long, you can use ```label_wrap("Long y axis label")```       |
+| ```theme(legend.position="top")```    | move legend to top of graph (default is on the right)        |
+| ```theme(legend.position="none")```     | remove legend     |
+| ```theme(legend.title = element_blank())```     | remove legend title   |
+| ```theme(plot.caption = element_text(size=11, hjust=0))```   | set caption to be left-justified and size 11 font         |
+| ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
+| ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))```    | adjust x axis tick marks/ grid lines    |
+
+|           |         |
+|           |         |
+|           |         |
+|           |         |
+
 
 ```
 comic_characters %>% 
@@ -65,22 +112,35 @@ ggplot(mindfulness, aes(x=duration_mins, y=bpm_change, color=activity)) +
 ## Color
 
 Use color sparingly and consistently. A change in color should convey information about the data (not just make it pretty).
-*
-    - scale_color_manual(values=c(”gray40”, “red”, “gray55”, “gray70”)
-    - vischeck.com to check how my visualization would look to someone with colorblindness
-    - scale_linetype_manual(values=c(”22”, “solid”, “33”, “44”)
-    - use linetypes in addition to color to help cover your bases
-    - color evokes emotion, varies by culture! color-meanings.com/color-symbolism-different-cultures/
-    - avoid rainbow color palettes. See slide 2 of Data_visualization_examples. 
+
+#### Choosing colors
+
+* Avoid rainbow color palettes. See slide 10 of Data_visualization_examples.
+* [Here](https://r-charts.com/colors/) is a list of all the named colors in R if you want to use color names like "steelblue" instead of HEX codes.
+* Color evokes emotion, which [varies by culture](color-meanings.com/color-symbolism-different-cultures/)
+* Use colorblind friendly colors (thank you to Andrés Cumsille for some of these resources!)
+  + [Color brewer](https://colorbrewer2.org/#type=diverging&scheme=PuOr&n=3) lets you check the box for "colorblind safe" when choosing color schemes
+  + The [Okabe Ito color pallete](https://siegal.bio.nyu.edu/color-palette/) only goes up to 8 colors but is great
+  + [Kelly's 22 colors of maximum contrast](https://medium.com/@rjurney/kellys-22-colours-of-maximum-contrast-58edb70c90d1) is another resource
+  + Use [vischeck](vischeck.com) or [this simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/) to check how your visualization would look to people with various kinds of color deficiencies
+
+
+#### Code to adjust colors on your plot
+
+* scale_color_manual(values=c("steelblue", "firebrick")
+  + This lets you use your own non-default colors
+* scale_linetype_manual(values=c(”22”, “solid”, “33”, “44”)
+  + If you're doing a line graph, you can change linetypes in addition to color
+
+
+#### A process for critiquing and improving your own/others’ graphs and visualizations
+
+1. make a note of the first few things you see
+2. make a note of the first idea that forms in your mind and then search for more
+3. make notes on likes, dislikes, and wish-I-saws
+4. find 3 things you’d change and say why
+5. sketch/prototype your vision, and critique yourself
  
-- A process for critiquing and improving your own/others’ graphs and visualizations
-    1. make a note of the first few things you see
-    2. make a note of the first idea that forms in your mind and then search for more
-    3. make notes on likes, dislikes, and wish-I-saws
-    4. find 3 things you’d change and say why
-    5. sketch/prototype your vision, and critique yourself
- 
-named colors in R: https://r-charts.com/colors/
 adding a horizontal line ggplot: https://www.statology.org/ggplot-horizontal-line/
 remove gridlines ggplot: https://www.statology.org/ggplot-remove-gridlines/
 remove axis labels ggplot: https://www.statology.org/remove-axis-labels-ggplot2/
