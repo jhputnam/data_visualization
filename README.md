@@ -1,6 +1,6 @@
 # data_visualization
 
-This repository is meant to be a reference about best data visualization practices. Much of the content comes from LIS470: Data Storytelling with Visualization taught by Dr. Emilee Rader in Spring 2026.
+This repository is meant to be a reference about best data visualization practices. Much of the content comes from LIS407: Data Storytelling with Visualization taught by Dr. Emilee Rader in Spring 2026.
 
 # R Markdown
 
