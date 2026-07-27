@@ -39,6 +39,6 @@ It is important to spend some time getting to know your data before moving on to
 | head(df, 10)          | returns the first 6 rows of data. Here I overrode that and had it return the first 10. tail(df) would show the last 6 rows.       |
 | df %>% select("time", "species", "od600") %>% head()         | If you have a lot of variables, you can select which columns you want to display        |
 | names(df)      | returns names of columns         |
-| summarize(df)          |         |
+| summary(df)          | returns summary statistics like mean/median for numeric variables        |
 |           |         |
 
