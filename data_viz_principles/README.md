@@ -28,16 +28,4 @@ Our audience will have limited time with our visualization. We need to help them
   + Closure: when looking at a complex arrangement, we tend to look for a single, recognizable pattern. We fill in the blanks until we can make a pattern.
   + Enclosure: when objects are in the same closed region (for example, within a border), we perceive them as being grouped together. If there is a visual barrier between objects, we perceive separation.
   + Continuity: elements arranged on a line/curve are perceived to be more related than elements not on the line/curve.
- 
 
-
-
-
-
-
-
-
-
-AI can help with coding in R if you run into errors. However, I have found that resources like stackoverflow, ggplot website, and my class notes can be much more helpful at helping me understand what my code is doing and why it didn't work. There are often many different ways to code something to get the same result, and I prefer to use the tools I was taught instead of an alternative generative AI way that is confusing to me. Either way, be sure that you can explain what each line of your code does. Importantly, generative AI is pretty bad at critiquing or making visualizations, so the principles herein are important to learn and follow yourself. 
-
-We must do the work to get to know our data well before making the most effective visualizations we can to communicate our main point. 
