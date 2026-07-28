@@ -65,6 +65,8 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 |           |         |
 
 
+## Example 1
+
 ```
 comic_characters %>% 
   select(year, name, publisher, sex) %>% 
@@ -96,6 +98,8 @@ comic_characters %>%
   annotate(geom = "text", label = "Female Characters", x = 1996, y = 24, hjust = "left", color = "#e7298a") +
   annotate(geom = "text", label = "Male Characters", x = 1998, y = 77, hjust = "left", color = "#4daf4a")
 ```
+
+## Example 2
 
 ```
 ggplot(mindfulness, aes(x=duration_mins, y=bpm_change, color=activity)) +
@@ -146,8 +150,6 @@ Use color sparingly and consistently. A change in color should convey informatio
 3. make notes on likes, dislikes, and wish-I-saws
 4. find 3 things you’d change and say why
 5. sketch/prototype your vision, and critique yourself
- 
-box plot ggplot: https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/
- 
+  
 
 
