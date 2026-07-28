@@ -13,7 +13,7 @@ Here are the main plot types I use, but see the whole list [here](https://ggplot
 | ```geom_point()```    | scatter plot   |
 | ```geom_col()```     | bar chart   |
 | ```geom_line()```    | line graph   |
-| ```geom_boxplot()```    | box plot   |
+| ```geom_boxplot()```    | box plot: see [this resource](https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/) for tips on plotting boxplots in R, but don't leave the background gray like they did   |
 | ```geom_violin()```   | violin plot   |
 
 
@@ -46,14 +46,20 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```labs(subtitle = "Your subtitle here")```    | add subtitle        |
 | ```labs(x = "Time (h)")```     | add x axis label. If it's long, you can use ```label_wrap("Long x axis label")```       |
 | ```labs(y = "Optical Density at 600nm")```    | add y axis label. If it's long, you can use ```label_wrap("Long y axis label")```       |
+| ```theme(axis.text.x = element_blank())```          | remove x axis labels. Swap x for y to remove y axis labels        |
+| ```theme(axis.title.x = element_blank())```          | remove x axis title. Swap x for y to remove y axis title           |
+| ```theme(axis.ticks.x = element_blank())```          | remove x axis tick marks. Swap x for y to remove y axis tick marks      |
 | ```theme(legend.position="top")```    | move legend to top of graph (default is on the right)        |
 | ```theme(legend.position="none")```     | remove legend     |
 | ```theme(legend.title = element_blank())```     | remove legend title   |
+| ```labs(color = "Legend title", shape = "Legend title")```          | for everything your variable is mapped to for your legend, put the title you want        |
+| ```guides(color = guide_legend(override.aes = list(size = 4)))```           | change size of symbols in legend        |
 | ```theme(plot.caption = element_text(size=11, hjust=0))```   | set caption to be left-justified and size 11 font         |
 | ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
 | ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))```    | adjust x axis tick marks/ grid lines    |
-
-|           |         |
+| ```theme(panel.grid.major = element_line(linewidth = 0.25, color = "gray"))```           | adjust thickness and color of major grid lines        |
+| ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines        |
+| ```geom_hline(yintercept = 20, linetype = "dashed", color = "black", size = 2)```          | add a horizontal line at y = 20. You don't have to include linetype/color/size. If you want to do multiple, do ```geom_hline(yintercept = c(1, 20, 24))```         |
 |           |         |
 |           |         |
 |           |         |
@@ -93,7 +99,7 @@ comic_characters %>%
 
 ```
 ggplot(mindfulness, aes(x=duration_mins, y=bpm_change, color=activity)) +
-  geom_point(size = 4) +
+  geom_point(size = 4) + # adjust size of points in scatterplot. You can also choose a different shape besides circles here. Look up the table with the number code for each shape. 
   theme_minimal() +
   geom_hline(yintercept = 0, color = "darkgray") +
   scale_color_manual(values = c("gray", "hotpink")) +
@@ -141,9 +147,6 @@ Use color sparingly and consistently. A change in color should convey informatio
 4. find 3 things you’d change and say why
 5. sketch/prototype your vision, and critique yourself
  
-adding a horizontal line ggplot: https://www.statology.org/ggplot-horizontal-line/
-remove gridlines ggplot: https://www.statology.org/ggplot-remove-gridlines/
-remove axis labels ggplot: https://www.statology.org/remove-axis-labels-ggplot2/
 box plot ggplot: https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/
  
 
