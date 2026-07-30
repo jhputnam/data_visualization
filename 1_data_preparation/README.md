@@ -2,6 +2,17 @@
 
 Before you can make a figure, you first need to load your data into R. You may also need to transform it or reorganize it before graphing. In this tutorial, I will not fully teach how to use R (there are plenty of resources available), but I will go through a few key steps. 
 
+## Keyboard shortcuts in R
+
+These are for Windows but there are similar equivalents for Mac.
+
+| Action      | Keyboard shortcut      |
+| ------------ | ------------- |
+| Insert new code chunk | ctrl + alt + i |
+| Insert the pipe symbol | ctrl + shift + m |
+| Run whole code chunk | ctrl + shift + enter |
+| Run the line your cursor is on/ selected code | ctrl + enter |
+
 ## Load your data
 
 Load the tidyverse library into R. The first time you use it, you will need to type install.packages("tidyverse") into the console. Libraries are really the magic of R. They are built by the community and free to use. Many libraries have been made for various types of analyses in the biological sciences. 
