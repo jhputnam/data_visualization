@@ -2,6 +2,8 @@
 
 Before you can make a figure, you first need to load your data into R. You may also need to transform it or reorganize it before graphing. In this tutorial, I will not fully teach how to use R (there are plenty of resources available), but I will go through a few key steps. 
 
+As you write code, I like to separate it into separate code chunks in an R Markdown (.Rmd) file. Be sure to add lots of comments to your code so that others and future you can understand your thought processes and what each line does. 
+
 ## Keyboard shortcuts in R
 
 These are for Windows but there are similar equivalents for Mac.
