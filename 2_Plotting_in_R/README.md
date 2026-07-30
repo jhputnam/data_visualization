@@ -1,34 +1,35 @@
 # Plotting in R
 
-I almost always use ggplot to make plots in R, though there are other options if you're working with a niche kind of dataset. For heatmaps, there is a ggplot option, but you can also use pheatmap (pretty heatmap). For this tutorial, I will focus on ggplot. 
+I almost always use ggplot to make plots in R, though there are other options if you're working with a niche kind of dataset. For example, for heatmaps there is a ggplot option, but you can also use pheatmap (pretty heatmap). For this tutorial, I will focus on ggplot. 
 
 # Choosing Plot Type
 
 If you're not sure which type of plot would best display your data, see the flowchart on slide 4 of Data_visualization_resources to help you decide. See also [this site](https://datavizproject.com/). 
 
-Here are the main plot types I use, but see the whole list [here](https://ggplot2.tidyverse.org/reference/). 
+Here are the main plot types I use, but see the whole list [here](https://ggplot2.tidyverse.org/reference/). If you want some code to get you started, or to look at a variety of example plots, [this site](https://r-charts.com/) has a variety of example plots and includes the code that made them. It also includes a short tutorial on how you can customize that type of plot. 
 
 | Code    | Plot Type |
 | --------- | ------- |
 | ```geom_point()```    | scatter plot   |
 | ```geom_col()```     | bar chart   |
+| ```geom_bar()```     | stacked bar chart ```geom_bar(position = "dodge")``` is an unstacked bar chart equivalent to ```geom_col()``` |
 | ```geom_line()```    | line graph   |
 | ```geom_boxplot()```    | box plot: see [this resource](https://www.geeksforgeeks.org/r-language/box-plot-in-r-using-ggplot2/) for tips on plotting boxplots in R, but don't leave the background gray like they did   |
 | ```geom_violin()```   | violin plot   |
 
-
+Do not use pie charts if possible! The data is mapped to the angle, not to the area. Our brains look at the area and assume that is what corresponds to the data values, so we always misinterpret them at least to some degree. 
 
 # Plotting Cheat Sheet
 
-First you'll need to use ggplot, then choose your geom (chart type), then choose your overall theme. This takes away the ugly gray background in the standard option. I always use either theme_bw() or theme_minimal(). Then, you can add all sorts of customization using + at the previous line.
-For code that goes within theme() or labs(), you can combine them into one theme() or labs(), separating each piece of code with a comma. 
+First you'll need to use ggplot, then choose your geom (chart type), then choose your overall theme. This takes away the ugly gray background in the standard option. I always use either ```theme_bw()``` or ```theme_minimal()```. Then, you can add all sorts of customization using + at the previous line.
+For code that goes within ```theme()``` or ```labs()```, you can combine them into one ```theme()``` or ```labs()```, separating each piece of code with a comma. 
 
 ```
 df %>% # this is a pipe symbol. There is one other pipe symbol that does the same thing. Alternatively, you can put the df name before the aes in the ggplot argument ggplot(df, aes(...))
   ggplot(aes(x = time, y = od600, color = condition)) +
   geom_point() + # scatterplot
   theme_minimal() +
-  # everything else goes here below your ggplot, geom, and the overall theme you're choosing lines of code
+  # everything else goes below your ggplot, geom, and the overall theme you're choosing
   labs(
     x = "Time (h)",
     y = "Optical Density at 600nm"
@@ -41,7 +42,6 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 
 | Code    | What it does |
 | --------- | ------- |
-| ```annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)```     | adds text at specific coordinates in the graph   |
 | ```labs(title = "Your Title Here")```      | add title. If it's long, you can use ```label_wrap("Your Title Here")```        |
 | ```labs(subtitle = "Your subtitle here")```    | add subtitle        |
 | ```labs(x = "Time (h)")```     | add x axis label. If it's long, you can use ```label_wrap("Long x axis label")```       |
@@ -58,14 +58,20 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
 | ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))```    | adjust x axis tick marks/ grid lines    |
 | ```theme(panel.grid.major = element_line(linewidth = 0.25, color = "gray"))```           | adjust thickness and color of major grid lines        |
-| ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines        |
+| ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines. .major would get rid of major grid lines. Add .x or .y after if you want to do different things to the horizontal/vertical grid lines     |
 | ```geom_hline(yintercept = 20, linetype = "dashed", color = "black", size = 2)```          | add a horizontal line at y = 20. You don't have to include linetype/color/size. If you want to do multiple, do ```geom_hline(yintercept = c(1, 20, 24))```         |
+| ```annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)```     | adds text at specific coordinates in the graph   |
 |           |         |
 |           |         |
 |           |         |
 
+# Tips
 
-## Example 1
+* Reduce visual clutter as much as possible. Get rid of as many elements as you can while maintaining meaning. For example, often for a box plot vertical grid lines are not necessary to interpret the plot. Also, if your x-axis is 2020, 2021, 2022, 2023, you probably can get rid of the x-axis title saying years because that is self-explanatory.
+* Less is more. Reduce clutter, use more white space, always get rid of the gray background.
+* 
+
+# Example 1
 
 ```
 comic_characters %>% 
@@ -99,7 +105,7 @@ comic_characters %>%
   annotate(geom = "text", label = "Male Characters", x = 1998, y = 77, hjust = "left", color = "#4daf4a")
 ```
 
-## Example 2
+# Example 2
 
 ```
 ggplot(mindfulness, aes(x=duration_mins, y=bpm_change, color=activity)) +
@@ -119,37 +125,56 @@ ggplot(mindfulness, aes(x=duration_mins, y=bpm_change, color=activity)) +
   geom_label_repel(aes(label = label), size = 3, data = mindfulness, show.legend = FALSE)
 ```
 
-## Color
+# Color
 
 Use color sparingly and consistently. A change in color should convey information about the data (not just make it pretty).
 
-#### Choosing colors
+### Choosing Colors
 
 * Avoid rainbow color palettes. See slide 10 of Data_visualization_examples.
 * [Here](https://r-charts.com/colors/) is a list of all the named colors in R if you want to use color names like "steelblue" instead of HEX codes.
 * Color evokes emotion, which [varies by culture](color-meanings.com/color-symbolism-different-cultures/)
 * Use colorblind friendly colors (thank you to Andrés Cumsille for some of these resources!)
+  + The default colors in R are *not* colorblind friendly
   + [Color brewer](https://colorbrewer2.org/#type=diverging&scheme=PuOr&n=3) lets you check the box for "colorblind safe" when choosing color schemes
   + The [Okabe Ito color pallete](https://siegal.bio.nyu.edu/color-palette/) only goes up to 8 colors but is great
   + [Kelly's 22 colors of maximum contrast](https://medium.com/@rjurney/kellys-22-colours-of-maximum-contrast-58edb70c90d1) is another resource
   + Use [vischeck](vischeck.com) or [this simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/) to check how your visualization would look to people with various kinds of color deficiencies
 
 
-#### Code to adjust colors on your plot
+### Code to adjust colors on your plot
 
-* scale_color_manual(values=c("steelblue", "firebrick")
-  + This lets you use your own non-default colors
-* scale_linetype_manual(values=c(”22”, “solid”, “33”, “44”)
+* ```scale_color_manual(values=c("steelblue", "firebrick")```
+  + This lets you manually set your colors
+* ```scale_linetype_manual(values=c(”22”, “solid”, “33”, “44”)```
   + If you're doing a line graph, you can change linetypes in addition to color
+* ```geom_piont(shape = 17)```
+  + If you're doing a scatter plot, you can change the shape of the points. [Here](https://www.datanovia.com/learn/data-visualization/ggplot2/point-shapes) is an in-depth guide. This site also has a key for which numbers correspond to which shapes
+ 
+# Saving Your Plot
+
+I save plots for use in slides or papers using ggsave. I usually go through multiple iterations of saving a plot as I adjust the plot dimensions and various font sizes to my liking. I either save as .png or .pdf. It'll save to your working directory so make sure it's set to what you want. What saves looks a little different than the plot that pops up after your code chunk, so be sure that the dimensions and font sizes look good for your saved file. 
+
+```ggsave("Your_file_name.png", width = 10, height = 6, units = "in")```
 
 
-#### A process for critiquing and improving your own/others’ graphs and visualizations
+# Further Resources
 
-1. make a note of the first few things you see
-2. make a note of the first idea that forms in your mind and then search for more
-3. make notes on likes, dislikes, and wish-I-saws
-4. find 3 things you’d change and say why
-5. sketch/prototype your vision, and critique yourself
+[R-charts](https://r-charts.com/ggplot2/) has several pages that focus on modifying different parts of charts:
+* [ggplot2 axis titles, labels, ticks, limits, and scales](https://r-charts.com/ggplot2/axis/)
+* [Title, subtitle, caption, and tags in ggplot2](https://r-charts.com/ggplot2/titles/)
+* [Faceting in ggplot2 with facet_wrap and facet_grid](https://r-charts.com/ggplot2/facets/)
+* [Legends in ggplot2](https://r-charts.com/ggplot2/legend/)
+* Many more (text annotations; background color; grid customization; margins; themes; reference lines, curves, segments, and arrows; coordinate systems; combining plots)
+
+
+# Iterate to Improve: A process for critiquing and improving your own/others’ graphs and visualizations
+
+1. What do you first see when you look at the graph?
+2. What is the first idea that forms in your mind when you look at it (for example, there is a positive correlation)? As you continue to look at it, do you have any other ideas?
+3. What do you like/ dislike/ wish you saw?
+4. What are three things you would change? Why?
+5. Sketch your vision of a revised graph and then critique it
   
 
 
