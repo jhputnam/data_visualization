@@ -40,6 +40,8 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
   )
 ```
 
+## Title, axes, legend, caption, gridlines
+
 | Code    | What it does |
 | --------- | ------- |
 | ```labs(title = "Your Title Here")```      | add title. If it's long, you can use ```label_wrap("Your Title Here")```        |
@@ -59,6 +61,11 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))```    | adjust x axis tick marks/ grid lines    |
 | ```theme(panel.grid.major = element_line(linewidth = 0.25, color = "gray"))```           | adjust thickness and color of major grid lines        |
 | ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines. .major would get rid of major grid lines. Add .x or .y after if you want to do different things to the horizontal/vertical grid lines     |
+
+## Additions to plots (lines, text, etc.)
+
+| Code    | What it does |
+| --------- | ------- |
 | ```geom_hline(yintercept = 20, linetype = "dashed", color = "black", size = 2)```          | add a horizontal line at y = 20. You don't have to include linetype/color/size. If you want to do multiple, do ```geom_hline(yintercept = c(1, 20, 24))```         |
 | ```annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)```     | adds text at specific coordinates in the graph   |
 |           |         |
@@ -67,8 +74,9 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 
 # Tips
 
-* Reduce visual clutter as much as possible. Get rid of as many elements as you can while maintaining meaning. For example, often for a box plot vertical grid lines are not necessary to interpret the plot. Also, if your x-axis is 2020, 2021, 2022, 2023, you probably can get rid of the x-axis title saying years because that is self-explanatory.
-* Less is more. Reduce clutter, use more white space, always get rid of the gray background.
+* Less is more. Reduce visual clutter as much as possible, use more white space, and always get rid of the gray background. Get rid of as many elements as you can while maintaining meaning. Examples:
+  + Often for a box plot vertical grid lines are not necessary to interpret the plot
+  + If your x-axis is 2020, 2021, 2022, 2023, etc. you probably can get rid of the x-axis title saying "Year" because that is self-explanatory
 * 
 
 # Example 1
@@ -148,7 +156,7 @@ Use color sparingly and consistently. A change in color should convey informatio
   + This lets you manually set your colors
 * ```scale_linetype_manual(values=c(”22”, “solid”, “33”, “44”)```
   + If you're doing a line graph, you can change linetypes in addition to color
-* ```geom_piont(shape = 17)```
+* ```geom_point(shape = 17)```
   + If you're doing a scatter plot, you can change the shape of the points. [Here](https://www.datanovia.com/learn/data-visualization/ggplot2/point-shapes) is an in-depth guide. This site also has a key for which numbers correspond to which shapes
  
 # Saving Your Plot
@@ -171,7 +179,7 @@ I save plots for use in slides or papers using ggsave. I usually go through mult
 # Iterate to Improve: A process for critiquing and improving your own/others’ graphs and visualizations
 
 1. What do you first see when you look at the graph?
-2. What is the first idea that forms in your mind when you look at it (for example, there is a positive correlation)? As you continue to look at it, do you have any other ideas?
+2. What is the first idea that forms in your mind when you look at it (for example, there is a positive correlation between variables A and B)? As you continue to look at it, do you have any other ideas?
 3. What do you like/ dislike/ wish you saw?
 4. What are three things you would change? Why?
 5. Sketch your vision of a revised graph and then critique it
