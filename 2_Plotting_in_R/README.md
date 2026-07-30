@@ -21,7 +21,7 @@ Do not use pie charts if possible! The data is mapped to the angle, not to the a
 
 # Plotting Cheat Sheet
 
-First you'll need to use ggplot, then choose your geom (chart type), then choose your overall theme. This takes away the ugly gray background in the standard option. I always use either ```theme_bw()``` or ```theme_minimal()```. Then, you can add all sorts of customization using + at the previous line.
+First you'll need to use ggplot, then choose your geom (chart type), then choose your overall theme. This takes away the ugly gray background in the standard option. I always use either ```theme_bw()``` or ```theme_minimal()``` but [here](https://ggplot2.tidyverse.org/reference/ggtheme.html) are other options. Then, you can add all sorts of customization using + at the previous line.
 For code that goes within ```theme()``` or ```labs()```, you can combine them into one ```theme()``` or ```labs()```, separating each piece of code with a comma. 
 
 ```
@@ -54,7 +54,8 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```theme(legend.position="top")```    | move legend to top of graph (default is on the right)        |
 | ```theme(legend.position="none")```     | remove legend     |
 | ```theme(legend.title = element_blank())```     | remove legend title   |
-| ```labs(color = "Legend title", shape = "Legend title")```          | for everything your variable is mapped to for your legend, put the title you want        |
+| ```labs(color = "Legend title", shape = "Legend title")```          | for everything your variable is mapped to for your legend, put the title you want. This could be color, shape, fill, or something else. Look at your ggplot aes to see what you mapped your categories to       |
+| ```guides(color = guide_legend(nrow = 1, (override.aes = list(size = 4)))```           | make things in legend be all on one row, change size of symbols in legend     |
 | ```guides(color = guide_legend(override.aes = list(size = 4)))```           | change size of symbols in legend        |
 | ```theme(plot.caption = element_text(size=11, hjust=0))```   | set caption to be left-justified and size 11 font         |
 | ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
