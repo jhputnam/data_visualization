@@ -53,6 +53,7 @@ It is important to spend some time getting to know your data before moving on to
 | ```df %>% select("time", "species", "od600") %>% head()```         | If you have a lot of variables, you can select which columns you want to display        |
 | ```names(df)```      | returns names of columns         |
 | ```summary(df)```          | returns summary statistics like mean/median for numeric variables        |
+| ```distinct(categorical_variable)``` | lists what the different levels (options) for that categorical variable are |
 
 # Transforming your data
 
