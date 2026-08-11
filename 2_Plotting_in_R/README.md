@@ -48,8 +48,10 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```labs(subtitle = "Your subtitle here")```    | add subtitle        |
 | ```labs(x = "Time (h)")```     | add x axis label. If it's long, you can use ```label_wrap("Long x axis label")```       |
 | ```labs(y = "Optical Density at 600nm")```    | add y axis label. If it's long, you can use ```label_wrap("Long y axis label")```       |
-| ```theme(axis.text.x = element_blank())```          | remove x axis labels. Swap x for y to remove y axis labels        |
+| ```theme(axis.title = element_text(size=14)```          | set text size of axis titles       |
 | ```theme(axis.title.x = element_blank())```          | remove x axis title. Swap x for y to remove y axis title           |
+| ```theme(axis.text.x = element_blank())```          | remove x axis labels. Swap x for y to remove y axis labels        |
+| ```theme(axis.text = element_text(size = 12))```          | set text size of axis text        |
 | ```theme(axis.ticks.x = element_blank())```          | remove x axis tick marks. Swap x for y to remove y axis tick marks      |
 | ```theme(legend.position="top")```    | move legend to top of graph (default is on the right)        |
 | ```theme(legend.position="none")```     | remove legend     |
