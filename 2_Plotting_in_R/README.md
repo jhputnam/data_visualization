@@ -59,7 +59,7 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```guides(color = guide_legend(override.aes = list(size = 4)))```           | change size of symbols in legend        |
 | ```theme(plot.caption = element_text(size=11, hjust=0))```   | set caption to be left-justified and size 11 font         |
 | ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
-| ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))```    | adjust x axis tick marks/ grid lines    |
+| ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))``` or ```scale_x_continuous(breaks = c(0, 24, 48, 72))```   | adjust x axis tick marks/ grid lines    |
 | ```theme(panel.grid.major = element_line(linewidth = 0.25, color = "gray"))```           | adjust thickness and color of major grid lines        |
 | ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines. .major would get rid of major grid lines. Add .x or .y after if you want to do different things to the horizontal/vertical grid lines     |
 
@@ -68,7 +68,7 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | Code    | What it does |
 | --------- | ------- |
 | ```geom_hline(yintercept = 20, linetype = "dashed", color = "black", size = 2)```          | add a horizontal line at y = 20. You don't have to include linetype/color/size. If you want to do multiple, do ```geom_hline(yintercept = c(1, 20, 24))```         |
-| ```annotate(geom=”text”, label”Friday the 9th”, x = 2005, y = 13500, hjust=”right”)```     | adds text at specific coordinates in the graph   |
+| ```annotate(geom="text", label"Friday the 9th", x = 2005, y = 13500, hjust="right")```     | adds text at specific coordinates in the graph   |
 |           |         |
 |           |         |
 |           |         |
