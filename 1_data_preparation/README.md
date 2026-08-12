@@ -35,6 +35,12 @@ When loading in a csv, you can do things like skip the first line
 od600 <- read_csv("data/20260727_od600_invaders_jp.csv", skip=1)
 ```
 
+or choose only some of the columns
+
+```
+od600 <- read_csv("data/20260727_od600_invaders_jp.csv", col_select=c(2, 3, 17, 18, 19)
+```
+
 or use your own column names.
 
 ```
@@ -77,6 +83,7 @@ It is important to spend some time getting to know your data before moving on to
            strain == "CI01" ~ "Invader" # when strain is CI01, set category to Invader
            )
           ```
+        - ```df %>% mutate(log_cfu = log10(cfu))``` - make a new column, log_cfu, that is the log10 of the existing column cfu
     - ```group_by()``` - divide up the data into subsets. Usually this is done before performing another transformation
        - ``` df <- df %>% group_by(category) %>% summarize(avg_genome_size = mean(genome_size)) ``` group by category, then calculate the average genome size for each category
     - ```summarize()``` - perform calculations that summarize a variable over a group of rows (eg. calculating average)
@@ -88,7 +95,7 @@ It is important to spend some time getting to know your data before moving on to
     - ```rename()``` - an easy way to rename the columns of a data object
        - ``` df %>% rename(new_column_name = old_column_name) ``` 
  
-When performing any of these transformations, you can just pipe it, in which case what will do will only stay within that section of code. When you call that object somewhere else, it will still be the "old" version without your transformations.
+When performing any of these transformations, you can just pipe it, in which case what you do will only stay within that section of code. When you call that object somewhere else, it will still be the "old" version without your transformations.
 ```
 df %>%
   select(od600, strain, time) # select only the od600, strain, and time columns of df
