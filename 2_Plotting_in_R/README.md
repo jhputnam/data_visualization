@@ -62,7 +62,7 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```theme(strip.text = element_text(size=13, color="red")```           | adjust size and color of text for facet labels ("strip text")        |
 | ```labs(caption = str_wrap("Figure 1. Your caption here.", 110)```  | add caption. str_wrap wraps the text if it gets to long to fit as one line. Only put the number if you use str_wrap. You can play around with the number to make the caption the width you want.   |
 | ```theme(plot.caption = element_text(size=11, hjust=0))```   | set caption to be left-justified and size 11 font         |
-| ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))``` or ```scale_x_continuous(breaks = c(0, 24, 48, 72))```   | adjust x axis tick marks/ grid lines    |
+| ```scale_x_continuous(breaks = seq(1, 7, by = 1.5))``` or ```scale_x_continuous(limits = c(0, 80), breaks = c(0, 24, 48, 72))```   | adjust x axis tick marks/ grid lines. Use limits to change the limits of the x axis   |
 | ```theme(panel.grid.major = element_line(linewidth = 0.25, color = "gray"))```           | adjust thickness and color of major grid lines        |
 | ```theme(panel.grid.minor = element_blank()```          | get rid of minor grid lines. .major would get rid of major grid lines. Add .x or .y after if you want to do different things to the horizontal/vertical grid lines     |
 
