@@ -56,6 +56,7 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```theme(legend.position="top")```    | move legend to top of graph (default is on the right)        |
 | ```theme(legend.position="none")```     | remove legend     |
 | ```theme(legend.title = element_blank())```     | remove legend title   |
+| ```theme(legend.text = element_text(size=12))``` | set text size of legend labels |
 | ```labs(color = "Legend title", shape = "Legend title")```          | for everything your variable is mapped to for your legend, put the title you want. This could be color, shape, fill, or something else. Look at your ggplot aes to see what you mapped your categories to       |
 | ```guides(color = guide_legend(nrow = 1, (override.aes = list(size = 4)))```           | make things in legend be all on one row, change size of symbols in legend     |
 | ```guides(color = guide_legend(override.aes = list(size = 4)))```           | change size of symbols in legend        |
