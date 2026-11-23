@@ -48,6 +48,7 @@ df %>% # this is a pipe symbol. There is one other pipe symbol that does the sam
 | ```labs(subtitle = "Your subtitle here")```    | add subtitle        |
 | ```labs(x = "Time (h)")```     | add x axis label. If it's long, you can use ```label_wrap("Long x axis label")```       |
 | ```labs(y = "Optical Density at 600nm")```    | add y axis label. If it's long, you can use ```label_wrap("Long y axis label")```       |
+| ```theme(plot.title = element_text(size = 16, hjust = 0.5))```     | set title of plot text size and make it centered      |
 | ```theme(axis.title = element_text(size=14)```          | set text size of axis titles       |
 | ```theme(axis.title.x = element_blank())```          | remove x axis title. Swap x for y to remove y axis title           |
 | ```theme(axis.text.x = element_blank())```          | remove x axis labels. Swap x for y to remove y axis labels        |
